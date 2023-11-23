@@ -1,0 +1,33 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-primary mb-3">
+    <a class="navbar-brand p-2 " href="#">
+     <!-- <i class="fa-solid fa-barcode"></i> -->
+     <i class="fa-solid fa-fan"></i>
+     <span class="text-white"> BengkelBatik</span>
+    </a>
+</nav>
+
+<div class="container">
+    <!-- ngx-scanner-qrcode -->
+    <ngx-scanner-qrcode #action="scanner" [config]="config" (event)="onEvent($event, action)"></ngx-scanner-qrcode>
+    <!-- data  -->
+    <!-- <p class="data">{{ (action.data | async | json) }}</p> -->
+  
+    <!-- loading -->
+    <p *ngIf="action.isLoading"><i class="fa-solid fa-hourglass-start"></i> Loading...</p>
+  
+</div>
+<div class="container">
+    
+    <button class="btn btn-block mb-3" [class.btn-primary]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, action.isStart ? 'stop' : 'start')">
+        {{title}} <i class="fa-solid" [ngClass]="action.isStart ? 'fa-solid fa-power-off' : 'fa-camera'"></i>
+    </button>
+</div>
+
+<footer class="footer mt-auto py-3 bg-primary text-white">
+    <div class="container text-center">
+      <span>&copy; 2023 Batik Banjarwangi</span>
+    </div>
+</footer>
+  
+  
