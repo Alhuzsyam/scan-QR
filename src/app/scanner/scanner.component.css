@@ -1,0 +1,7 @@
+/* YourComponent.css */
+:host ::ng-deep ngx-scanner-qrcode video {
+    playsinline: true !important;
+    width: 100% !important;
+    height: 27rem !important;
+    background: #4f46e526 !important;
+  }
